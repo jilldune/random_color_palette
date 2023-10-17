@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*,
+*::after,
+*::before {
+    font-family: "Poppins",sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+ul { li {list-style: none; } }
+
+.main {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #d3ebfc;
+    overflow: hidden;
+    
+    .color-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden auto;
+        
+        .color-container {
+            width: 120px;
+            height: fit-content;
+            padding: .3em;
+            margin: 13px;
+            background-color: fff;
+            border-radius: .2em;
+            box-shadow: 0 10px 20px rgba(52, 87, 220, 0.08);
+            transform-origin: center;
+            transition: transform .3s ease-in-out;
+            cursor: pointer;
+
+            &:hover {
+                .color-screen {
+                    filter: brightness(109%);
+                }
+            }
+            &:active { transform: scale(0.95); }
+            &>* { user-select: none; }
+            
+            .color-screen {
+                height: 120px;
+                background-color: #8A6CFF;
+                border-radius: .15em;
+            }
+            .color-name {
+                display: block;
+                color: #444;
+                margin: 10px 0 8px;
+                font-size: .85rem;
+                font-weight: 500;
+                text-align: center;
+                text-transform: uppercase;
+            }
+        }
+    }
+    
+
+    .refresh-container {
+        position: absolute;
+        left: 50%;
+        bottom: 5%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+        border: 1px solid #fff;
+        border-radius: .2em;
+        overflow: hidden;
+        background-color: #fff;
+        box-shadow: 0 0 15px rgba(52, 87, 220, 0.3);
+        $dim: 40px;
+        
+        button {
+            height: $dim;
+            font-size: 0.95rem;
+            color: white;
+            text-transform: capitalize;
+            padding: .6em 1em;
+            border-radius: .15em 0 0 .15em;
+            background-color: #8A6CFF;
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .main {
+        .color-wrapper {
+            .color-container {
+                width: 100px;
+            }
+        }
+        .refresh-container {
+            transform: translateX(-60%);
+            button {
+                font-size: 0.75rem;
+                white-space: nowrap;
+            }
+        }
+    }
+}
